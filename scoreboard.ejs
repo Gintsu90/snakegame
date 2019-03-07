@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Leaderboard</title>
+</head>
+<body>
+
+        <%  scores.sort(function(a, b){return b.score - a.score});
+            scores.forEach(function(score) { %>
+            <p><%= score.username %> <%= score.score %></p>
+        <% }); %>
+
+</body>
+</html> 

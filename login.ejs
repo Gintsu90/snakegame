@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        </style>
+    </head>
+    <body>
+        <h2>Register!</h2>
+        <form method="POST" action="/register">
+            <p>Username</p>
+            <input type="text" name="username">
+            <p>Password</p>
+            <input type="password" name="password">
+            <input type="submit" value="register">
+        </form>
+        <%if (registered) { %>
+            Registered successfully.
+        <% } %>
+        <hr><hr><hr>
+
+        <%if (loginfailed) { %>
+            <h2>LOGIN FAILED, TRY AGAIN!!!</h2>
+        <% } else { %>
+            <h2>Login!</h2>
+        <% } %>
+        <form method="POST" action="/login">
+            <p>Username</p>
+            <input type="text" name="username">
+            <p>Password</p>
+            <input type="password" name="password">
+            <input type="submit" value="login">
+        </form>
+    </body>
+</html>

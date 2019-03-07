@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+        <head>
+            <title>SNAKE GAME</title>
+            <meta charset="utf8">
+            <style>
+
+            #score {
+                text-align: center;
+                font-size: 80px;
+                font-family: 'Antic Slab', serif;
+            }   
+            #startButton {
+                position:absolute;
+                top:50%;
+                left:44%;
+                width: 200px;
+                height: 50px;
+                font-size: 20px; 
+            }
+            #tryAgainBtn {
+                position:absolute;
+                top:50%;
+                left:44%;
+                width: 200px;
+                height: 50px;
+                font-size: 20px; 
+                display: none;
+            }
+            #logOutBtn {
+                position:absolute;
+                top: 5%;
+                left: 30%;
+            }
+            #leaderboard {
+                position: absolute;
+                left: 80%;
+            }
+            
+            
+            </style>
+        </head>
+        <body bgcolor="green">
+            <h1 align="center">This is Snake!</h1>
+            <h2 align="center">Welcome back <%= username %> :)</h2>
+            
+            <div id="score">0</div>
+            <div style="display:flex;justify-content:center;align-items:center;position:relative;">
+                <canvas id="gameCanvas" width="300" height="300"></canvas>
+                <button type="button" id="startButton" onclick="startGame()">START</button>
+                <button type="button" id="tryAgainBtn" onclick="startGame()">TRY AGAIN</button>
+                <iframe src="/leaderboard" id="leaderboard" height="300" width="300"></iframe>
+            </div>
+            <form action="/logout" method="GET">
+            <button type="submit" id="logOutBtn" >LOG OUT</button>
+            </form> 
+
+            <script src="gamesettings.js"></script>
+        </body>
+</html> 
