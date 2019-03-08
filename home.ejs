@@ -13,7 +13,7 @@
             #startButton {
                 position:absolute;
                 top:50%;
-                left:44%;
+                left:43%;
                 width: 200px;
                 height: 50px;
                 font-size: 20px; 
@@ -21,7 +21,7 @@
             #tryAgainBtn {
                 position:absolute;
                 top:50%;
-                left:44%;
+                left:43%;
                 width: 200px;
                 height: 50px;
                 font-size: 20px; 
@@ -36,6 +36,11 @@
                 position: absolute;
                 left: 80%;
             }
+            #leaderboard {
+                border-style: solid;
+                background-color: rgb(151, 9, 9);
+                border-radius: 25px;
+            }
             
             
             </style>
@@ -49,7 +54,7 @@
                 <canvas id="gameCanvas" width="300" height="300"></canvas>
                 <button type="button" id="startButton" onclick="startGame()">START</button>
                 <button type="button" id="tryAgainBtn" onclick="startGame()">TRY AGAIN</button>
-                <iframe src="/leaderboard" id="leaderboard" height="300" width="300"></iframe>
+                <iframe src="/leaderboard" id="leaderboard" height="300" width="280"></iframe>
             </div>
             <form action="/logout" method="GET">
             <button type="submit" id="logOutBtn" >LOG OUT</button>

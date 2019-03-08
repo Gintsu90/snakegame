@@ -16,11 +16,6 @@ class jsondb {
     }   
         
     getUser(username) {
-        // 1. parsi this.file polusta json tiedosto
-        // 2. eti users arraysta, käyttäjä objekti jossa 
-        //    username vastaa username argumenttia
-        //    - jos käyttäjä objektia ei löydy, palauta undefined
-        // 3. palauta löydetty käyttäjä objekti
         let json = JSON.parse(fs.readFileSync(this.file, 'utf8'));
         
         let found_user = undefined;
@@ -34,9 +29,6 @@ class jsondb {
     }
 
     addUser(user) {
-        // 1. parsi this.file polusta json tiedosto
-        // 2. lisää parsittuun puuhun, users arrayhin annettu user objekti argumentti
-        // 3. seriaalisoi puu jsonina takaisin this.file polkuun
         let json = JSON.parse(fs.readFileSync(this.file, 'utf8'));
         json.users.push(user);
         JSON.stringify(json);
@@ -131,15 +123,6 @@ app.post("/score", loginRequired, (req, resp, next) => {
 });
 
 app.post("/register", (req, resp) => {
-    // Annettu käyttäjä ja salasan löytyy req.body objektista
-    // (post parametreja)
-    //
-    // 1. katso onko db:ssä jo saman niminen käyttäjä
-    //    - jos on niin virhe
-    // 2. bcryptaa salasana (bcrypt.hash)
-    // 3. tallenna käyttäjä ja bcryptattu salasana db:hen
-    // 4. (optional) kirjaa käyttäjä automaagisesti sisään 
-    //               tai ohjaa jonnekin sivulle.
     const {username, password} = req.body;
     if (db.getUser(username)) {
         resp.redirect("/?userexist=true");
@@ -156,20 +139,7 @@ app.post("/register", (req, resp) => {
 });
 
 app.post("/login", (req, resp) => {
-    // Annettu käyttäjä ja salasan löytyy req.body objektista
-    // (post parametreja)
-    //
-    // 1. etsi db:stä käyttäjänimellä käyttäjä objekti
-    //    - jos ei löydy, niin virhe
-    //    - yleensä heitetään "väärä käyttäjätunnus tai salasana"
-    //    - ei heitetä omaa virheviestiä koska botit voi päätellä
-    //      oliko pelkästään käyttäjätunnus väärin tai salasana
-    // 2. bcryptaa annettu salasana
-    // 3. vertaa sitä käyttäjä objektissa olevaan salasanaan
-    //    - jos ei matchaa, niin virhe
-    // 4. jos matchaa, niin käyttäjä on kirjautunut sisään
-    //    - pitää luoda sessio että serveri muistaa kirjautumisen
-    // 5. ohjaa takaisin pääsivulle, tai johonkin tervetuloa sivulle
+    
     const { username, password } = req.body;
     const user = db.getUser(username);
 
